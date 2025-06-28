@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tourly - Travel Agency</title>
+
+  <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- #POPULAR -->
+  <section class="popular" id="destination">
+    <div class="container">
+
+      <h2 class="h2 section-title">THIS IS IT!<br>YOU'RE HEADED TO <span id="destination-name"></span></h2>
+
+      <ul class="popular-list">
+
+        <li>
+          <div class="popular-card">
+            <div class="card-content">
+              <p class="card-subtitle">
+                <span class="h3 card-title" id="answer"></span>
+              </p>
+              <p class="card-text" id="description-text">
+                <!-- Description dynamically inserted here -->
+              </p>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <img class="popular-card" id="daimage" src="" alt="Destination Image">
+        </li>
+
+      </ul>
+
+      <button class="btn btn-primary">More destinations</button>
+
+    </div>
+  </section>
+
+  <!-- #PACKAGE -->
+  <!-- Unchanged section -->
+
+  <!-- #CTA -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="h2 section-title">Haven't satisfied your travel bug yet? <br> Have another go!</h2>
+      </div>
+      <button class="btn btn-secondary" onclick="location.href='h.htm'">Restart Quiz!</button>
+    </div>
+  </section>
+
+  <!-- #FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-brand">
+          <p class="footer-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, ex deleniti assumenda neque quod velit omnis enim vero, fugit vel ipsa soluta optio provident at quia eius eum numquam! Fugiat?
+          </p>
+        </div>
+        <div class="footer-contact">
+          <h4 class="contact-title">Contact Us</h4>
+          <p class="contact-text">Feel free to contact and reach us !!</p>
+          <ul>
+            <li class="contact-item">
+              <ion-icon name="call-outline"></ion-icon>
+              <a href="tel:+01123456790" class="contact-link">+01 (123) 4567 90</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-form">
+          <p class="form-text">Subscribe our newsletter for more update & news !!</p>
+          <form action="" class="form-wrapper">
+            <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
+            <button type="submit" class="btn btn-secondary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    const country = localStorage.getItem("country") || "Unknown";
+    document.getElementById("answer").textContent = country;
+    document.getElementById("destination-name").textContent = country;
+
+    const image = document.getElementById("daimage");
+    const desc = document.getElementById("description-text");
+
+    const destinations = {
+      "France": {
+        img: "images/Paris.jpg",
+        text: "Ah, Paris — the city of light, love, and timeless elegance. Stroll down the Seine, sip espresso in cobbled cafés, and marvel at architectural masterpieces like the Eiffel Tower and Notre-Dame. From haute couture to historic art at the Louvre, every corner of Paris tells a story. Indulge in pastries, poetry, and passion. This is not just a trip — it's a romance with life itself."
+      },
+      "Thailand": {
+        img: "images/Bangkok.jpg",
+        text: "Alive with energy and steeped in spiritual calm, Bangkok is a symphony of contrasts. Cruise through floating markets, marvel at golden temples, and indulge in world-famous street food that awakens your senses. This is a city of vibrant chaos, ancient wisdom, and heartfelt smiles. In Bangkok, every moment pulses with life."
+      },
+      "UAE": {
+        img: "images/Dubai.jpg",
+        text: "Futuristic wonder meets ancient tradition in dazzling Dubai. Soar above the clouds in the Burj Khalifa, ride camels across golden dunes, and shop in opulent souks or mega-malls. From skydiving thrills to serene desert nights, Dubai is where luxury, culture, and adventure converge. Welcome to a city that never stops reaching for the stars."
+      },
+      "Egypt": {
+        img: "images/Cairo.jpg",
+        text: "Step into a world of wonder in Cairo, where ancient pyramids rise from the desert and the Nile whispers secrets of pharaohs past. Visit the Sphinx, haggle in vibrant bazaars, and dine beside relics older than time. Cairo is not just a destination — it’s a timeless saga carved in stone and spirit."
+      },
+      "Greece": {
+        img: "images/Athens.jpg",
+        text: "Where legends were born and democracy took its first breath, Athens stands proud — a blend of ancient glory and contemporary culture. Gaze up at the Acropolis, walk the same paths as Socrates, and feel the heartbeat of mythology beneath your feet. Let the Mediterranean breeze guide you through sunlit tavernas and bustling markets. Athens is not just a destination — it’s a journey through time."
+      },
+      "Spain": {
+        img: "images/Barcelona.jpg",
+        text: "Barcelona is an artistic heartbeat with the soul of a sun-drenched dream. Wander through Gaudí’s surreal architecture, dance to flamenco in hidden alleys, and feast on tapas under starlit skies. With beaches, boulevards, and boundless spirit, this Catalan capital invites you to live life louder, brighter, and bolder."
+      },
+      "Switzerland": {
+        img: "images/Bern.jpg",
+        text: "Step into a fairy tale in Bern, where time slows and beauty reigns. Surrounded by the Alps and framed by the Aare River’s turquoise waters, Bern offers medieval charm with modern sophistication. Explore UNESCO-listed streets, climb the Zytglogge clock tower, and unwind in serene alpine vistas. Whether you're sipping Swiss chocolate or skiing snowy peaks, Bern enchants the soul."
+      },
+      "Czechia": {
+        img: "images/Prague.jpg",
+        text: "Welcome to Prague — a city where Gothic spires pierce the sky and the past whispers from every corner. Cross the Charles Bridge at dawn, lose yourself in the maze of Old Town, and sip rich Czech beer by candlelight. Romance, rebellion, and resilience define this Bohemian masterpiece. Your story in Prague is one you’ll never forget."
+      },
+      "Húsavík": {
+        img: "images/Husavik.jpg",
+        text: "Welcome to Húsavík — Iceland’s whale-watching capital and a hidden treasure nestled along the Arctic coast. Here, majestic mountains meet the North Atlantic, where you'll embark on unforgettable encounters with humpbacks, orcas, and blue whales. Immerse yourself in geothermal hot springs, explore volcanic landscapes, and experience the midnight sun or aurora borealis dancing overhead. Adventure, tranquility, and raw natural beauty await."
+      },
+      "Maldives": {
+        img: "images/Male.jpg",
+        text: "Welcome to Malé — your gateway to paradise. Crystal-clear waters, overwater bungalows, and coral reefs as colorful as dreams await. Whether diving into turquoise lagoons or relaxing with oceanfront views, the Maldives is the ultimate escape into serenity and splendor."
+      },
+      "Tanzania": {
+        img: "images/Zanzibar.jpg",
+        text: "Zanzibar is the stuff of dreams — spice-scented breezes, white-sand beaches, and turquoise tides lapping coral shores. Roam Stone Town’s Swahili-Arabic alleys, swim with dolphins, and watch the sun melt into the Indian Ocean. It’s not just a destination — it’s a paradise for the soul."
+      },
+      "Madagascar": {
+        img: "images/Antananarivo.jpg",
+        text: "Antananarivo, or 'Tana,' invites you into a world of rare wildlife, terraced hills, and French-influenced charm. Explore vibrant markets, meet lemurs in lush forests, and discover a culture as unique as the island itself. This is Madagascar — wild, wonderful, and unforgettable."
+      },
+      "Mexico": {
+        img: "images/Tijuana.jpg",
+        text: "Tijuana is bold, vibrant, and unapologetically alive. Border-town buzz meets rich Mexican tradition in a city full of tacos, art, music, and movement. Discover underground galleries, dance to reggaetón, and taste life in every spicy, soulful moment."
+      },
+      "Moai": {
+        img: "images/Moai.jpg",
+        text: "Far out in the Pacific, Easter Island beckons — a place of mystery, majesty, and ancient stone giants. Gaze into the eyes of the Moai statues, explore volcanic craters, and embrace the island’s sacred energy. Remote yet radiant, this is where nature, history, and magic collide."
+      },
+      "Tórshavn": {
+        img: "images/Torshavn.jpg",
+        text: "Tucked away in the North Atlantic, Tórshavn is a serene escape into misty fjords, grassy rooftops, and Viking heritage. With its cozy harbor, dramatic cliffs, and storytelling skies, the Faroe Islands offer a raw, unspoiled beauty unlike anywhere else on Earth."
+      },
+      "Algiers": {
+        img: "images/Algiers.jpg",
+        text: "Algiers, the white city by the sea, rises in terraces from the Mediterranean shore, echoing tales of empires and elegance. Explore the Casbah’s winding alleys, French-colonial architecture, and the blend of Arab-Andalusian culture. Here, past and present coexist with powerful grace."
+      }
+    };
+
+    if (destinations[country]) {
+      image.src = destinations[country].img;
+      desc.textContent = destinations[country].text;
+    } else {
+      image.src = "default.jpg";
+      desc.textContent = "Start your journey of discovery. Explore, dream, and travel to places you’ve never been before!";
+    }
+  </script>
+
+  <script src="script.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

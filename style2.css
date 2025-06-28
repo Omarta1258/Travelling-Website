@@ -1,0 +1,258 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.banner{
+    width:100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.75)),url(images/beachbackground.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/*    NAVBAR     */
+
+.navbar{
+    width:85%;
+    margin:auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+   text-decoration: none;
+   color:#fff;
+   text-transform: uppercase; 
+}
+
+.navbar ul li::after{
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #0074b3;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.15s;
+}
+.navbar ul li:hover::after{
+    width: 100%;
+}
+
+
+
+.container {
+    /* display: inline-block;
+    cursor: pointer; */
+ position: absolute;
+ right:6%;
+ top:5%
+  }
+ 
+.contenth{
+    display: none;
+    position: absolute;
+ right:6%;
+ top:10%;
+ color: white;
+}
+
+.active .contenth{
+    display:block;
+}
+
+ul.no-bullets {
+    list-style-type: none;
+}
+
+
+.banner .contenth .no-bullets{
+  margin-top: -20px;
+  margin-right: 50px;
+font-size: 20px;
+  padding: 7px;
+    background-color: #fff;
+    border-radius: 7px;
+    opacity: 70%;
+}
+
+.banner .contenth .no-bullets a{
+    text-decoration: none;
+}
+
+
+#menu-item1{
+    color: #000;
+    opacity: 100%;
+    padding: 5px;
+}
+
+#menu-item1:hover{
+    background-color: #0074b3;
+    color: white;
+    border-radius: 7px;
+
+}
+
+#menu-item2{color: black;
+    opacity: 100%;
+    padding: 5px;
+}
+
+#menu-item2:hover{
+    background-color: #0074b3;
+    color: white;
+    border-radius: 7px;
+
+}
+#menu-item3{color: #000;
+    opacity: 100%;
+    padding: 5px;
+}
+
+#menu-item3:hover{
+    background-color: #0074b3;
+    color: white;
+    border-radius: 7px;
+
+}
+
+
+
+
+
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+  
+  .change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+
+
+
+/*     TITLE      */
+
+.Title{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+.Title h1{
+    font-size: 70px;
+    margin-top: 80px;
+}
+
+.Title p{
+    color:#F7EEDD;
+    margin: 20px auto;
+    font-size: 18px;
+    line-height: 25px;
+
+}
+
+/*     BUTTON      */
+
+button{
+    width: 200px;
+    padding:15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    font-weight: bold;
+    border: 2px solid #0074b3;
+    background:transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+span{
+    background: #0074b3;
+    height: 100%;
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.15s;
+    
+}
+button:hover span{
+    width: 100%;
+}
+button:hover{
+    border: none;
+}
+
+/*      INSTRUCTIONS     */
+
+#instructions{
+    background-color: #0e1a1a;
+    padding: 30px;
+    align-content: center;
+}
+
+#points{
+    border: #F7EEDD ;
+    background-color: dimgray;
+    width: 300px;
+    height:250px;
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    font-weight: 1;
+    border-radius: 5px;
+    color:#F7EEDD;
+    vertical-align: top;
+}
+
+#img1{
+    margin-bottom:10px ;
+    width: 100%;
+    height: 150px;
+}
+
+#img2{
+    height: 150px;
+    margin-bottom:10px ;
+    width: 80%;
+    padding-left: 10px;
+
+}
+#img3{
+    height: 150px;
+    margin-bottom:10px ;
+    width: 100%;
+}
+#img4{
+    height: 153px;
+    margin-bottom:10px ;
+    width: 80%;
+}
+
+#points p{
+    margin-top: 3px;
+}

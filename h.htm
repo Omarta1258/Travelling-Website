@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quiz</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <link rel="icon" href="images/Aser.webp">
+
+    <style>
+/* ___________________________________________________________________________ */
+/* Colors to Use */
+/* #008DDA Darker Blue*/
+/* #41C9E2 Cyan*/
+/* #ACE2E1 Lighter Cyan*/
+/* #F7EEDD Paej*/
+
+/* rgb(157, 108, 4) */
+/*  */
+/*  */
+/*  */
+
+body{
+    background-color: #F7EEDD;
+    color: #003f92;
+}
+
+.btnbased h3{
+    font-size: 30px;
+    font-family: cambria;
+}
+
+.btnbased {
+    font-size:1.3em;
+    text-align: center;
+}
+
+.btnbased button{
+    position:relative;
+    color: #003f92;
+    font-size: 1em;
+    align-items: center;
+    text-align:center;
+    cursor:pointer;
+    width:375px;
+    height:80px;
+    border: 1px solid #0074b3;
+    margin: 0px 1em 1em 0px;
+    font-family: Farnham;
+    background-color: #F7EEDD;
+}
+
+.btnbased button:hover{
+    background-color: #0074b3;
+    transition: background-color 0.15s ease-in-out 0s;
+    color:#F7EEDD;
+}
+
+h1{
+    text-align: center;
+}
+
+.choice:focus {
+    background-color: #0074b3;
+    color:#F7EEDD;
+}
+
+.choice:focus {
+    background-color: #0074b3;
+    color:#F7EEDD;
+}
+
+.choiceT:focus {
+    background-color: #0074b3;
+    color:#F7EEDD;
+}
+
+/* Style for disabled button */
+button:disabled {
+    background-color: #F7EEDD;
+    color: #003f92;
+    cursor: default; /* Change cursor to indicate action is not allowed */
+}
+
+/* Removing hover effects specifically for disabled button */
+button:disabled:hover {
+    background-color: #F7EEDD;
+    color: #003f92; /* Keep the background color consistent with disabled style */
+}
+
+#chosenone{
+    background-color: #0074b3 ;
+    color:#F7EEDD
+}
+
+.options2,.options3,.options4,.options5,.options6,.options7,.options8,.options9,.options10,.options11,.options12,.options13,.options14,.options15,.options16,.options17,.options18,.options19,.options20,.options21,.options22,.options,.options,.options{
+    display: none;
+}
+
+.unh{
+    display: block;
+}
+
+.btnbased1{
+    display: none;
+}
+
+/* @keyframes movePlane {
+    0% { align-items: center;text-align: center; top: 300px; transform: rotate(180deg); }
+    100% { top: 400px; transform: rotate(540deg); }
+} */
+
+/* @keyframes movePlane {
+    0% { text-align: center; transform: rotate(180deg); }
+    25% {top: 25vh; transform: rotate(180deg); }
+    50% {top: 75vh; transform: rotate(180deg); }
+    75% {top: 50vh; transform: rotate(180deg); }
+    100% {right: 80vb; top: 150vh; transform: rotate(180deg); }
+}
+
+
+.airplane {
+    width: 50px;
+    z-index: 999;
+    background: url('images/images/images/—Pngtree—top view white airplane with_8893925 copy.png') no-repeat;
+    position: absolute;
+    animation: movePlane 10s linear infinite ;
+} */
+
+/* .curved-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 5s linear forwards;
+}
+
+@keyframes drawLine {
+    0% {
+        stroke-dashoffset: 1000;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+} */
+
+    </style>
+    
+    <script>
+
+    function myfunction(btn) {
+        let fe7alo = event.target.classList.value;
+        let Yassin = fe7alo;
+        var buttons = document.getElementsByClassName(Yassin); //Main prob is that it only disables the first four answers
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].disabled = true;
+        }
+        btn.id="chosenone"
+    }
+
+    function oppenheimer(clssName){
+        let uselesselem = document.querySelector(clssName);
+        // let uselesselem=getElementsByClassName(clssName();
+        uselesselem.classList.add('unh');
+        uselesselem.classList.remove(clssName);
+    }
+
+    //We have chooices as an array, but we still don't have a country
+    // let Country = "later";
+    function result(coun){
+        localStorage.setItem('country', coun);
+    }
+
+    const choices = []; //Array of choices
+
+    function fillin(button,n){
+        choices[n]= button.textContent;
+        console.log(choices)
+    }
+
+    // Store the stringified array in local storage
+    function arrstr(){
+    const cities = ["húsavík","Paris","Bern","Athens","Prague","Dubai","Bangkok","Barcelona","Venice","Cairo","Moai","Algiers","Male","Tijuana","Zanzibar","Antananarivo","Tórshavn"];
+    const countries = ["Iceland","France","Switzerland","Greece","Czechia","UAE","Thailand","Spain","Italy","Egypt","Moai","Easter Island","Algeria","Maldives","Mexico","Tanzania","Madagascar","Faroe Islands"]
+    const citiesString = JSON.stringify(cities);
+    const countriesString = JSON.stringify(countries);
+
+    // Store strings in local storage
+    localStorage.setItem("cities", citiesString);
+    localStorage.setItem("countries", countriesString);
+}
+    </script>
+
+</head>
+
+<body>
+    <!-- <script src="Youssef.js">
+    </script> -->
+    <!-- <form method="post"> -->
+        
+    <!-- <svg width="500" height="200">
+            <path class="curved-line" d="M20,250 Q40,200 350,90" fill="none" stroke="black" stroke-width="2"></path>
+        </svg> -->
+    <!-- <audio id="beep" preload="auto"> <source src="Audios/beep.mp3"> </audio> -->
+
+<div class="btnbased">
+
+        <h3>1-What type of traveler are you?</h3>
+        <div class="options1">
+            <button class="choice1" onclick="myfunction(this),oppenheimer('.options2'),arrstr()" id="nooo">I like trying new experiences</button>
+            <button class="choice1" onclick="myfunction(this),oppenheimer('.options2'),arrstr()" id="nooo">I want a relaxing trip</button>
+            <br>
+            <button class="choice1" onclick="myfunction(this),oppenheimer('.options2'),arrstr()" id="nooo">I'm a planner</button>
+            <button class="choice1" onclick="myfunction(this),oppenheimer('.options2'),arrstr()" id="nooo">I'm a cultural traveller </button>
+        </div>
+            
+    <div class="hidden">
+        <div class="options2">
+            <h3>2-What's the type of climate do you prefer?</h3>
+                <button class="choice2" onclick="myfunction(this),oppenheimer('.options3'),fillin(this,0)" id="nooo">Cold</button>
+                <button class="choice2" onclick="myfunction(this),oppenheimer('.options7'),fillin(this,0)" id="nooo">Warm</button>
+        </div>
+
+        <div class="options3" id="cold">
+            <h3>3-What is your preferred setting?</h3>
+                <button class="choice3" onclick="myfunction(this),oppenheimer('.options4'),fillin(this,1)" id="nooo">City</button>
+                <button class="choice3" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,1),result('Húsavík'),location.href='index2.html'" id="nooo">Nature</button>
+                <!-- ad 
+                <img src="images/ad"> -->
+        </div>
+
+        <div class="options4" id="cold/city">
+            <h3>4-What type of City would you like?</h3>
+                <button class="choice4" onclick="myfunction(this),oppenheimer('.options5'),fillin(this,2)" id="nooo">Modern</button>
+                <button class="choice4" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,2),result('France'),location.href='index2.html'" id="nooo">Historic</button>
+        </div>
+
+        <div class="options5" id="cold/city/modern">
+            <h3>5-How much are willing to spend?</h3>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,3),result('Switzerland'),location.href='index2.html'" id="nooo">Money isn't an issue</button>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options6'),fillin(this,3)" id="nooo">Money is an issue</button>
+        </div>
+        <!-- </div> -->
+
+        <div class="options6" id="cold/city/modern/moneyisanissue">
+            <h3>6-Who are you travelling with?</h3>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Greece'),location.href='index2.html'" id="nooo">Solo</button>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Greece'),location.href='index2.html'" id="nooo">My friends</button>
+                <br>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Czechia'),location.href='index2.html'" id="nooo">Partner</button>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Czechia'),location.href='index2.html'" id="nooo">It's a family trip</button>
+        </div>
+
+        <div class="options7" id="warm">
+            <h3>3-What is your preferred setting?</h3>
+                <button class="choice7" onclick="myfunction(this),oppenheimer('.options8') ,fillin(this,1)" id="nooo">City</button>
+                <button class="choice7" onclick="myfunction(this),oppenheimer('.options12'),fillin(this,1)" id="nooo">Nature</button>
+            </div>
+
+        <div class="options8" id="warm/city">
+            <h3>4-What type of City would you like?</h3>
+                <button class="choice8" onclick="myfunction(this),oppenheimer('.options9') ,fillin(this,2)" id="nooo">Modern</button>
+                <button class="choice8" onclick="myfunction(this),oppenheimer('.options11'),fillin(this,2)" id="nooo">Historic</button>
+        </div>
+
+        <div class="options9" id="warm/city/modern">
+            <h3>5-How much are willing to spend?</h3>
+                <button class="choice9" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,3),result('UAE'),location.href='index2.html'" id="nooo">Money isn't an issue</button>
+                <button class="choice9" onclick="myfunction(this),oppenheimer('.options10'),fillin(this,3)" id="nooo">Money is an issue</button>
+        </div>
+
+        <div class="options10" id="warm/city/modern/moneyisanissue">
+            <h3>6-Who are you travelling with?</h3>
+            <button class="choice10" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Thailand'),location.href='index2.html'" id="nooo">Solo</button>
+            <button class="choice10" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Thailand'),location.href='index2.html'" id="nooo">My friends</button>
+            <br>
+            <button class="choice10" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Spain'),location.href='index2.html'" id="nooo">Partner</button>
+            <button class="choice10" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Venice'),location.href='index2.html'" id="nooo">It's a family trip</button>
+
+        </div>
+
+        <div class="options11" id="warm/city/historic">
+            <h3>5-Who are you travelling with?</h3>
+                <button class="choice11" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,3),result('Egypt'),location.href='index2.html'" id="nooo">Solo</button>
+                <button class="choice11" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,3),result('Egypt'),location.href='index2.html'" id="nooo">My friends</button>
+                <br>
+                <button class="choice11" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,3),result('Moai'),location.href='index2.html'" id="nooo">Partner</button>
+                <button class="choice11" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,3),result('Moai'),location.href='index2.html'" id="nooo">It's a family trip</button>
+        </div>
+
+        <div class="options12" id="warm/nature">
+            <h3>4-What do you want to see out of your window?</h3>
+                <button class="choice12" onclick="myfunction(this),oppenheimer('.options13'),fillin(this,2)" id="nooo">Beach</button>
+                <button class="choice12" onclick="myfunction(this),oppenheimer('.options15'),fillin(this,2)" id="nooo">Forest</button>
+                <button class="choice12" onclick="myfunction(this),oppenheimer('.options2') ,fillin(this,2),result('Algiers'),location.href='index2.html'" id="nooo">Desert</button>
+        </div>
+
+        <div class="options13" id="warm/nature/beach">
+            <h3>5-How much are willing to spend?</h3>
+                <button class="choice13" onclick="myfunction(this),oppenheimer('.options2') ,fillin(this,3),result('Maldives'),location.href='index2.html'" id="nooo">Money isn't an issue</button>
+                <button class="choice13" onclick="myfunction(this),oppenheimer('.options14'),fillin(this,3)" id="nooo">Money is an issue</button>
+    </div>
+
+        <div class="options14" id="warm/nature/beach/moneyisanissue">
+            <h3>6-How are you travelling with?</h3>
+                <button class="choice14" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Mexico'),location.href='index2.html'" id="nooo">Solo</button>
+                <button class="choice14" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Mexico'),location.href='index2.html'" id="nooo">My friends</button>
+                <br>
+                <button class="choice14" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Tanzania'),location.href='index2.html'" id="nooo">Partner</button>
+                <button class="choice14" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,4),result('Tanzania'),location.href='index2.html'" id="nooo">It's a family trip</button>
+        </div>
+
+        <div class="options15" id="warm/nature/forest">
+            <h3>5-How are you travelling with?</h3>
+                <button class="choice15" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,3),result('Madagascar'),location.href='index2.html'" id="nooo">Solo</button>
+                <button class="choice15" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,3),result('Madagascar'),location.href='index2.html'" id="nooo">My friends</button>
+                <br>
+                <button class="choice15" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,3),result('Madagascar'),location.href='index2.html'" id="nooo">Partner</button>
+                <button class="choice15" onclick="myfunction(this),oppenheimer('.options2'),fillin(this,3),result('Madagascar'),location.href='index2.html'" id="nooo">It's a family trip</button>
+        </div>
+
+        <!-- <div class="options16">
+            <h3>Question 6</h3>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C1</button>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C2</button>
+                <br>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C3</button>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C4</button>
+        </div>
+
+        <div class="options17">
+            <h3>Question 5</h3>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C1</button>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C2</button>
+                <br>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C3</button>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C4</button>
+        </div>
+
+        <div class="options18">
+            <h3>Question 6</h3>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C1</button>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C2</button>
+                <br>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C3</button>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C4</button>
+        </div>
+
+        <div class="options19">
+            <h3>Question 5</h3>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C1</button>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C2</button>
+                <br>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C3</button>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C4</button>
+        </div>
+
+        <div class="options20">
+            <h3>Question 6</h3>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C1</button>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C2</button>
+                <br>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C3</button>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C4</button>
+        </div>
+
+        <div class="options21">
+            <h3>Question 5</h3>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C1</button>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C2</button>
+                <br>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C3</button>
+                <button class="choice5" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C4</button>
+        </div>
+
+        <div class="options22">
+            <h3>Question 6</h3>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C1</button>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C2</button>
+                <br>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C3</button>
+                <button class="choice6" onclick="myfunction(this),oppenheimer('.options2')" id="nooo">C4</button>
+        </div> -->
+
+
+    </div>
+</div>
+    <!-- </form> -->
+<!-- 
+    <script>
+        var beepOne= $("#beep")[0];
+        $(".btnbased button")
+        .mouseenter(function() {
+            beepOne.play();
+        });
+    </script> -->
+
+</body>
+</html>
+

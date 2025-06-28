@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Newsletter</title>
+    <style>
+        /* Set the background color for the entire page */
+        body {
+            background-color: #F7EEDD;
+            margin: 0;
+            padding: 0;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: black;
+        }
+
+        .des1 {
+            text-align: center;
+        }
+
+        .newsletter-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            margin: 20px auto;
+            max-width: 80%;
+        }
+
+        .newsletter-option {
+            text-align: left;
+            padding: 20px;
+            width: 45%;
+            background-color: #ACE2E1;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .newsletter-option img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .newsletter-option h3 {
+            margin: 10px 0;
+        }
+
+        .newsletter-option p {
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .newsletter-option button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #41C9E2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-option button:hover {
+            background-color: #34B0C7;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #F7EEDD;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .modal-content {
+            position: relative;
+        }
+
+        .modal input {
+            border: 1px solid #41C9E2;
+            border-radius: 5px;
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 90%;
+        }
+
+        .modal button {
+            padding: 10px 20px;
+            background-color: #41C9E2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal button:hover {
+            background-color: #34B0C7;
+        }
+
+        .close {
+            position: absolute;
+            top: -20px;
+            right: 0px;
+            font-size: 20px;
+            color: #41C9E2;
+            cursor: pointer;
+        }
+
+        .thank-you {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #F7EEDD;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Explore the World with Our Newsletters</h1>
+    <p class="des1">Stay informed with our travel newsletters.
+        <br>
+        Get the latest destination guides, packing tips, and exclusive content when you subscribe.
+        <br>
+        Choose the type of newsletter you'd like to receive
+    </p>
+
+    <div class="newsletter-container">
+        <!-- Travel Guide Newsletter -->
+        <div class="newsletter-option">
+            <img src="https://miro.medium.com/v2/resize:fit:1400/1*f08j9dZ2hNaJ6SuxoLSgEg.jpeg" alt="Travel Guide">
+            <h3><strong>Travel Guide</strong></h3> 
+            <p>Get exclusive travel tips, destination guides, and more with our Travel Guide newsletter.</p>
+            <button id="guide-btn">Subscribe to Travel Guide</button>
+        </div>
+
+        <!-- What to Pack Newsletter -->
+        <div class="newsletter-option">
+            <img src="https://media.istockphoto.com/id/1019095834/photo/guy-packing.jpg?s=612x612&w=0&k=20&c=gw5vE9dkbxU2mu3RnTgT3E0lFiBfX_f7hFNYmjHH-Bc="
+                alt="What to Pack">
+            <h3><strong>What to Pack</strong></h3> 
+            <p>Receive packing tips, checklists, and essentials with our What to Pack newsletter.</p>
+            <button id="packing-btn">Subscribe to What to Pack</button>
+        </div>
+    </div>
+
+    <div id="email-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-modal">&times;</span>
+            <h2>Subscribe to our Newsletter</h2>
+            <p>Enter your email address</p>
+            <form id="email-form">
+                <input type="email" name="email" required placeholder="Type your email" />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="thank-you" class="thank-you">
+        <h2>Thank You!</h2>
+        <p>Thank you for subscribing to our newsletter!</p>
+    </div>
+
+    <script>
+        const guideBtn = document.getElementById('guide-btn');
+        const packingBtn = document.getElementById('packing-btn');
+        const emailModal = document.getElementById('email-modal');
+        const closeModal = document.getElementById('close-modal');
+        const emailForm = document.getElementById('email-form');
+        const thankYouModal = document.getElementById('thank-you');
+
+        // Open the email modal wh
+        guideBtn.addEventListener('click', () => {
+            emailModal.style.display = 'block';
+        });
+
+        packingBtn.addEventListener('click', () => {
+            emailModal.style.display = 'block';
+        });
+
+
+        closeModal.addEventListener('click', () => {
+            emailModal.style.display = 'none';
+        });
+
+        // Handle form submission and show thank-you 
+        emailForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            emailModal.style.display = 'none'; 
+            thankYouModal.style.display = 'block'; 
+            emailForm.reset();
+            setTimeout(() => {
+                thankYouModal.style.display = 'none'; 
+            }, 3000); 
+        });
+    </script>
+</body>
+
+</html>

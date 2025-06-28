@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Vacation Destination Generator</title>
+    <link rel="stylesheet" href="style2.css">
+
+</head>
+<body>
+
+<div class="banner">
+    <div class="navbar">
+        <ul>
+            <li><a href="#titleses">Home</a></li>
+            <li><a href="#instructions">Instructions</a></li>          
+        </ul>
+    </div>
+    <div class="container" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="contenth">
+        <ul class="no-bullets">
+            <a href="Rosette.html"><li id="menu-item1">Start Quiz</li></a>
+
+            <a href="wishlist.html"><li id="menu-item2">Wishlist</li></a>
+        
+            <a href="newsletter.yassin.htm"><li id="menu-item3">Newsletter</li></a>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="Title" id="titleses">
+        <h1>Generate your vacation destination</h1>
+        <p>Embark on an exciting journey through our interactive quiz and discover the perfect vacation destination tailored just for you! </p>
+        <div>
+            <a href="Rosette.html"><button type="button"><span></span>START NOW</button></a>
+        
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="instructions">
+        <div id= "points">
+            <img src="start2.jpeg" id="img1">
+            <h3>1. Press "Start Quiz"</h3>
+            <p>Find a button labelled "Press Quiz" to start your journey</p>
+        </div>
+        <div id="points">
+            <img src="takequiz2.jpeg" id="img2">
+            <h3>2. Take a Quiz</h3>
+            <p>Answer questions designed to find out your preferences</p>
+       </div>
+        <div id="points">
+            <img src="vacation.jpeg" id="img3">
+
+            <h3>3. Reveal results</h3>
+            <p>Submit your answers to show the 4 most suitable destinations for you</p>
+        </div>
+        <div id="points">
+            <img src="packbags1.jpg" id="img4">
+            <h3>4. Pack your bags</h3>
+            <p>Submit your answers to show the 4 most suitable destinations for you</p>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script>
+  function myFunction(x) {
+    x.classList.toggle("change");
+  }
+  
+        const container = 
+        document.querySelector(".container");
+        
+
+        container.addEventListener("click",()=>{
+       
+            document.body.classList.toggle("active")
+        })
+  </script>
+  
+</body>
+</html>
+
+
+
+<!-- 
+    HTML NOTES
+Connect links with <a href="page2.html" target=_self title="this takes you to page 2">
+Make imagesw with <img src="images/shrek.jpg" height="300" alt ="this is an image of shrek" title >
+--

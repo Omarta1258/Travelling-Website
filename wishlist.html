@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Wishlist and All Countries</title>
+    <style>
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        th {
+            color: #ffffff;
+            background-color: #008DDA; 
+            text-align: left;
+            padding: 10px;
+
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd; 
+        }
+
+       
+        tbody tr:hover {
+            background-color: #f1f1f1;
+ 
+        }
+        body{
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+
+        }
+
+        .add-to-wishlist, .remove-from-wishlist {
+            background-color: #008DDA; 
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer; 
+            transition: background-color 0.3s;
+        }
+
+        .add-to-wishlist:hover, .remove-from-wishlist:hover {
+            background-color: #0170ac; 
+        }
+
+        .remove-from-wishlist {
+            background-color: #dc3545; 
+        }
+
+        .remove-from-wishlist:hover {
+            background-color: #c82333; 
+        }
+
+        
+        h2 {
+            color: #333333; 
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h5{
+            text-align: center
+        }
+        th {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>All Countries</h2>
+    <h5>You can seee all the available destiantions and can add them to the wishlist!</h5>
+    <table class="table table-striped">
+        <thead>
+            <tr class="bg-info">
+                <th>Country</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="allCountries">
+            <tr>
+                <td>USA</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Canada</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Egypt</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Bali</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Maldives</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Madagascar</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Mexico</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Venice</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Barcelona</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Zanzibar</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Costa Rica</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Paris</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Swiss</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Lapland</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+                <td>Prague</td>
+                <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+            </tr>
+            <tr>
+    
+        </tbody>
+    </table>
+
+    <h2>Wishlist</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr class="bg-info">
+                <th>Country</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="wishlist">
+        </tbody>
+    </table>
+
+    <script>
+        const allCountriesEl = document.getElementById("allCountries");
+        const wishlistEl = document.getElementById("wishlist");
+
+        allCountriesEl.addEventListener("click", (e) => {
+            if (e.target.classList.contains("add-to-wishlist")) {
+                const row = e.target.closest("tr");
+                const country = row.querySelector("td").innerText;
+
+                // Add to wishlist
+                wishlistEl.innerHTML += `
+                    <tr>
+                        <td>${country}</td>
+                        <td><button class="remove-from-wishlist">Remove</button></td>
+                    </tr>
+                `;
+
+                row.remove();
+            }
+        });
+
+        wishlistEl.addEventListener("click", (e) => {
+            if (e.target.classList.contains("remove-from-wishlist")) {
+                const row = e.target.closest("tr");
+                const country = row.querySelector("td").innerText;
+
+                allCountriesEl.innerHTML += `
+                    <tr>
+                        <td>${country}</td>
+                        <td><button class="add-to-wishlist">Add to Wishlist</button></td>
+                    </tr>
+                `;
+
+                row.remove();
+            }
+        });
+    </script>
+</body>
+
+</html>
